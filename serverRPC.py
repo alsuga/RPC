@@ -47,5 +47,3 @@ def juego2(a):
 
 server.register_function(juego1,"PiedraPapelOTijera")
 server.register_function(juego2,"CercaDelNumero")
-
-server.serve_forever()
