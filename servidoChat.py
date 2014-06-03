@@ -59,8 +59,13 @@ def recv(last_id):
       a.append(m)
   return a
 
+def sincronizar():
+  t1 = time.time()
+  return t1
+
 server.register_function(log)
 server.register_function(logout)
 server.register_function(enviado)
 server.register_function(recv)
+server.register_function(sincronizar)
 server.serve_forever()

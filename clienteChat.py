@@ -31,10 +31,18 @@ def recibido():
     except Exception, e:
       pass
 
+def sinc():
+  while True:
+    t1 = time.time()
+    ta = server.sincronizar() + time.time() - t1
+    print "hacer algo con la hora " + ta
+    time.sleep(1)
+
 
 escuchar = Thread(target=recibido)
+sincro = Thread(target=sinc)
+sincro.start()
 escuchar.start()
-
 
 
 last_message_id = -1
