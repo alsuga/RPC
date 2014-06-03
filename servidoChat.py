@@ -3,6 +3,7 @@ from SimpleXMLRPCServer import SimpleXMLRPCServer
 from SimpleXMLRPCServer import SimpleXMLRPCRequestHandler
 import random
 import math
+import time
 class RequestHandler(SimpleXMLRPCRequestHandler):
   rpc_paths = ('/RPC2',)
 
