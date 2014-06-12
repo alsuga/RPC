@@ -1,6 +1,7 @@
 import xmlrpclib
 from threading import Thread
 import time
+import datetime
 from Tkinter import *
 
 class MyApp:
@@ -68,16 +69,17 @@ class MyApp:
                 self.last_message_id = int(m['id'])
                 self.displayText('%s dice: %s\n\n' % (m['usuario'], m['texto']))
         self.display.see(END)
-        self.display.after(1000, self.refresh)
+        self.display.after(1, self.refresh)
   
         
     
 
-a = "192.168.8.103"
-whserver = "http://"+a+":"+"8000"
-server = xmlrpclib.ServerProxy(whserver)
+
   
-def listening():           
+def listening():
+    a = "192.168.8.103"
+    whserver = "http://"+a+":"+"8000"
+    server = xmlrpclib.ServerProxy(whserver)           
     root = Tk()
     root.wm_title("AlCaChat 0.1")
     myapp = MyApp(root, server)
@@ -90,6 +92,10 @@ def listening():
 
 
 def synch():
+  a = "192.168.8.103"
+  whserver = "http://"+a+":"+"8000"
+  server = xmlrpclib.ServerProxy(whserver)
+  print str(datetime.timedelta(seconds = time.time()))
   while True:  
     if not listen.is_alive():
       break
@@ -99,8 +105,8 @@ def synch():
     except Exception : 
       continue
     ta =  ts + (time.time() - t1)
-    print time.strftime("%a, %d, 
-    time.sleep(5)
+    print str(datetime.timedelta(seconds = ta))
+    time.sleep(2)
 
 listen = Thread (target = listening)
 listen.start()
