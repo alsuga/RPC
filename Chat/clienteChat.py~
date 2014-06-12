@@ -16,6 +16,10 @@ class MyApp:
         self.writer = Text(self.myContainer1,bd=5, height=5)
         self.writer.pack(side=TOP)
         self.writer.bind("<Return>", self.getText)
+        
+        a = "192.168.8.103"
+        whserver = "http://"+a+":"+"8000"
+
         self.server = server
         self.displayText("Ingrese un Nombre de Usuario:\n") 
         
